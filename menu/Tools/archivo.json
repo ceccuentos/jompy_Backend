@@ -1,0 +1,47 @@
+{
+"queryheader": [
+    {
+        "title" : "Registros Integrador",
+        "sqlheader": "select convert(varchar,getdate(),103) FechaIni, convert(varchar,getdate(),103) FechaFin"
+    }
+
+    ],
+"queryparams":[ 
+    {
+        "name" : "empresa",
+        "title": "Empresa",
+        "type" : "string",
+        "value" : "002"
+    },
+    {
+        "name" : "tipoDocto",
+        "title": "Tipo Documento",
+        "type" : "string",
+        "value" : "FACTURA VENTA (E)",
+        "sqltext" : "Select Distinct Tipodocto from Gen_Documento where empresa='«empresa»'"
+    },
+    {
+        "name" : "correlativo",
+        "title": "Correlativo",
+        "type" : "number",
+        "value" : 55809
+    },
+    {
+        "name" : "fechaIni",
+        "title": "Fecha Inicial",
+        "type" : "date",
+        "value" : "01/01/2022"
+    },
+    {
+        "name" : "fechaFin",
+        "title": "Fecha Final",
+        "type" : "date",
+        "value" : "31/12/2022"
+    }
+
+],
+
+"querymain" : "Select a.Empresa, a.Tipodocto, a.Numero, a.Correlativo, convert(varchar,a.Fecha,103) Fecha, a.Cliente, c.RazonSocial From dbo.Gen_Documento a Inner Join dbo.Ctacte c on c.empresa=a.empresa and c.Tipoctacte=a.TipoCtacte and c.Ctacte=a.IdCtacte Where a.empresa='«empresa»' and a.tipodocto='«tipoDocto»' and (correlativo=0«correlativo» or 0«correlativo»=0) and convert(varchar,a.fecha,103) between '«FechaIni»' and '«FechaFin»'",
+"queryexec" : "Exec dbo.DeleteIntegrador @Empresa='«emPresa»' and @TipoDocto=«tipoDocto» and @Correlativo=«correlativo» "
+
+}

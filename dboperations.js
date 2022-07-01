@@ -5,7 +5,7 @@ const sql = require('mssql');
 async function getOrders() {
     try {
         let pool = await sql.connect(config);
-        let products = await pool.request().query("SELECT * from Orders");
+        let products = await pool.request().query("SELECT top 10 * from BackOrder");
         return products.recordsets;
     }
     catch (error) {
@@ -18,7 +18,7 @@ async function getOrder(orderId) {
         let pool = await sql.connect(config);
         let product = await pool.request()
             .input('input_parameter', sql.Int, orderId)
-            .query("SELECT * from Orders where Id = @input_parameter");
+            .query("SELECT * from BackOrder where Correlativo = @input_parameter");
         return product.recordsets;
 
     }

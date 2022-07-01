@@ -1,11 +1,13 @@
-class Order{
-    constructor(Id,Title,Quantity,Message,City){
-        this.Id = Id; 
-        this.Title = Title; 
-        this.Quantity = Quantity;
-        this.Message = Message;
-        this.City = City; 
-    }
+class BackOrder{
+    constructor(Empresa,TipoDocumento,Correlativo,Fecha,TipoEntidad,Entidad,Pdte){
+        this.Empresa = Empresa; 
+        this.TipoDocumento = TipoDocumento; 
+        this.Correlativo = Correlativo;
+        this.Fecha = Fecha;
+        this.TipoEntidad = TipoEntidad; 
+        this.Entidad = Entidad; 
+        this.Pdte = Pdte
+        }
 }
 
-module.exports = Order;
+module.exports = BackOrder;

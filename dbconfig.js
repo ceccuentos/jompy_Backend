@@ -1,15 +1,19 @@
+require('dotenv').config()
+
+// TODO: Agregar conección vía stringconnect
 
 const config = {
-    user :'foo',
-    password :'foo',
-    server:'127.0.0.1',
-    database:'Products',
+    user : process.env.DBUSER,
+    password : process.env.DBPASSWORD, 
+    server : process.env.DBSERVER, 
+    database : process.env.DATABASE, 
     options:{
         trustedconnection: true,
         enableArithAbort : true, 
-        instancename :'SQLEXPRESS'
+        instancename : process.env.INSTANCENAME, 
     },
-    port : 55892
+    port : Number(process.env.DBPORT)
 }
+
 
 module.exports = config; 

@@ -1,0 +1,10 @@
+- Verificar archivo .Json  
+    * ver ruta de archivos
+    * Validar consistencia del archivo:
+        - querymain
+        - queryheader
+        - queryexec
+
+- verificar queryexec ver documentación de npm mssql  OK
+
+- route: get
